@@ -1,48 +1,71 @@
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { ServicesSection } from './components/ServicesSection';
-import { ProjectEstimator } from './components/ProjectEstimator';
+import { TrustBar } from './components/TrustBar';
+import { ProblemSection } from './components/ProblemSection';
+import { SolutionsSection } from './components/SolutionsSection';
+import { ResultsSection } from './components/ResultsSection';
 import { PortfolioSection } from './components/PortfolioSection';
-import { TechStackSection } from './components/TechStackSection';
 import { ProcessSection } from './components/ProcessSection';
-import { WhyUsSection } from './components/WhyUsSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
+import { TechStackSection } from './components/TechStackSection';
+import { AboutSection } from './components/AboutSection';
 import { FAQSection } from './components/FAQSection';
-import { ContactSection } from './components/ContactSection';
+import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
 export function App() {
   const handleOpenContact = () => {
-    const contactElement = document.getElementById('contato');
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth' });
+    const contactEl = document.getElementById('contato');
+    if (contactEl) {
+      contactEl.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 selection:bg-indigo-500/30 selection:text-indigo-200">
-      {/* Top Fixed Navigation */}
+    <div className="min-h-screen bg-[#0b0f19] text-slate-100 selection:bg-indigo-500/30 selection:text-indigo-200">
+      {/* 1. Header */}
       <Navbar onOpenContact={handleOpenContact} />
 
-      {/* Main Content Layout */}
+      {/* Main Sections */}
       <main>
+        {/* 2. Hero */}
         <Hero />
-        <ServicesSection />
-        <ProjectEstimator />
+
+        {/* 3. Barra de confiança */}
+        <TrustBar />
+
+        {/* 4. O Problema */}
+        <ProblemSection />
+
+        {/* 5. Soluções */}
+        <SolutionsSection />
+
+        {/* 6. Resultados / Benefícios */}
+        <ResultsSection />
+
+        {/* 7. Projetos / Case Água Belle */}
         <PortfolioSection />
-        <TechStackSection />
+
+        {/* 8. Como trabalhamos */}
         <ProcessSection />
-        <WhyUsSection />
-        <TestimonialsSection />
+
+        {/* 9. Tecnologias */}
+        <TechStackSection />
+
+        {/* 10. Sobre a Eliora */}
+        <AboutSection />
+
+        {/* 11. FAQ */}
         <FAQSection />
-        <ContactSection />
+
+        {/* 12. CTA Final */}
+        <FinalCTA />
       </main>
 
-      {/* Footer */}
+      {/* 13. Footer */}
       <Footer />
 
-      {/* Floating WhatsApp Action */}
+      {/* Floating Action */}
       <WhatsAppButton />
     </div>
   );
