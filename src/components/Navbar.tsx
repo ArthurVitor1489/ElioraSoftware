@@ -20,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
   const navLinks = [
     { label: 'Início', href: '#hero' },
     { label: 'Serviços', href: '#servicos' },
-    { label: 'Soluções & Cases', href: '#cases' },
+    { label: 'Cases', href: '#cases' },
     { label: 'Metodologia', href: '#metodologia' },
     { label: 'Simulador', href: '#simulador' },
     { label: 'FAQ', href: '#faq' },
@@ -42,32 +42,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4 lg:gap-8">
           
           {/* Brand Logo */}
-          <a href="#hero" className="flex items-center gap-3 group focus:outline-none">
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 p-[1.5px] shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all">
+          <a href="#hero" className="flex items-center gap-3 shrink-0 group focus:outline-none">
+            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 p-[1.5px] shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all shrink-0">
               <div className="w-full h-full bg-[#0b101e] rounded-[10px] flex items-center justify-center">
                 <Terminal className="w-5 h-5 text-indigo-400 group-hover:text-cyan-300 transition-colors" />
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-white font-heading flex items-center gap-1.5">
+              <span className="text-xl font-bold tracking-tight text-white font-heading flex items-center gap-1.5 whitespace-nowrap">
                 Eliora<span className="text-indigo-400 group-hover:text-cyan-400 transition-colors">Soft</span>
               </span>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 whitespace-nowrap">
                 Software & AI
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] border border-white/10 rounded-full px-5 py-1.5 backdrop-blur-md">
+          <nav className="hidden lg:flex items-center gap-1 bg-white/[0.03] border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md shrink-0">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] rounded-full transition-all"
+                className="px-3 py-1.5 text-xs lg:text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] rounded-full transition-all whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -75,19 +75,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           </nav>
 
           {/* Right Action / Availability Badge */}
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <div className="hidden md:flex items-center gap-3 shrink-0">
+            <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium whitespace-nowrap shrink-0">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
               <span>Disponível para novos projetos</span>
             </div>
 
             <button
               type="button"
               onClick={handleContactClick}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-cyan-500 text-white text-xs font-semibold shadow-lg shadow-indigo-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-cyan-500 text-white text-xs font-semibold shadow-lg shadow-indigo-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap shrink-0"
             >
               <span>Falar com Especialista</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
             </button>
           </div>
 
@@ -95,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white focus:outline-none"
+            className="lg:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white focus:outline-none shrink-0"
             aria-label="Abrir menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -105,9 +105,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0a0f1d]/98 border-b border-white/10 px-4 pt-4 pb-6 mt-3 backdrop-blur-xl shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden bg-[#0a0f1d]/98 border-b border-white/10 px-4 pt-4 pb-6 mt-3 backdrop-blur-xl shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="flex items-center gap-2 px-3 py-1.5 mb-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium w-fit">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
             <span>Disponível para novos projetos</span>
           </div>
 
