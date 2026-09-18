@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { ArrowRight, Sparkles, ShieldCheck, Zap, Database, Terminal, CheckCircle2, Code2 } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Sparkles, ShieldCheck, Zap, Database, Code2 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'architecture' | 'ai' | 'speed'>('architecture');
-
   return (
     <section id="hero" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-radial-grid">
       {/* Ambient background glows */}
@@ -89,130 +87,6 @@ export const Hero: React.FC = () => {
               </div>
               <p className="text-sm font-bold text-white">IA Generativa & LLMs</p>
               <p className="text-xs text-slate-400">Automação de alto impacto</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Interactive Terminal / Architecture Visual Mockup */}
-        <div className="mt-16 max-w-5xl mx-auto">
-          <div className="relative rounded-2xl overflow-hidden glass-card shadow-2xl shadow-indigo-950/40 border border-white/10">
-            {/* Terminal Top Bar */}
-            <div className="bg-[#0e1424] px-4 py-3 border-b border-white/10 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-rose-500/80" />
-                <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-                <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                <span className="ml-2 text-xs font-mono text-slate-400 flex items-center gap-1">
-                  <Terminal className="w-3.5 h-3.5 text-indigo-400" />
-                  eliora-cloud-engine :: production-deploy
-                </span>
-              </div>
-
-              <div className="flex items-center gap-1.5 bg-black/40 rounded-lg p-1">
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('architecture')}
-                  className={`px-2.5 py-1 text-xs rounded font-mono transition-colors ${
-                    activeTab === 'architecture' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  Arquitetura
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('ai')}
-                  className={`px-2.5 py-1 text-xs rounded font-mono transition-colors ${
-                    activeTab === 'ai' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  Agente IA
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('speed')}
-                  className={`px-2.5 py-1 text-xs rounded font-mono transition-colors ${
-                    activeTab === 'speed' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  Performance
-                </button>
-              </div>
-            </div>
-
-            {/* Terminal Body */}
-            <div className="p-6 font-mono text-xs sm:text-sm bg-[#070b14]/90 leading-relaxed text-slate-300 overflow-x-auto min-h-[220px]">
-              {activeTab === 'architecture' && (
-                <div className="space-y-2 animate-in fade-in duration-300">
-                  <div className="text-slate-500 font-sans text-xs"># Inicializando pipeline corporativo para eliorasoft.com.br</div>
-                  <div className="text-indigo-400 flex items-center gap-2">
-                    <span className="text-slate-400">$</span> eliora deploy --environment=production --security=enterprise
-                  </div>
-                  <div className="flex items-center gap-2 text-emerald-400">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Multi-tenant isolation & RBAC permissions validated (0 leaks)</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-emerald-400">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Database indexes & Prisma ORM pooling: active on PostgreSQL</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-emerald-400">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Docker containers provisioned with zero downtime rolling update</span>
-                  </div>
-                  <div className="pt-2 text-cyan-300 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-                    <span>Deploy concluído com sucesso em 1.84s • SSL ativo • Domínio: eliorasoft.com.br</span>
-                  </div>
-                </div>
-              )}
-
-              {activeTab === 'ai' && (
-                <div className="space-y-2 animate-in fade-in duration-300">
-                  <div className="text-slate-500 font-sans text-xs"># RAG Pipeline & LLM Automation Worker</div>
-                  <div className="text-indigo-400 flex items-center gap-2">
-                    <span className="text-slate-400">$</span> eliora ai-agent status --model=hybrid-reasoning
-                  </div>
-                  <div className="flex items-center gap-2 text-emerald-400">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Vector DB Knowledge Base: 14,280 chunks indexed with pgvector</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-emerald-400">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>WhatsApp Business Gateway: conectado e respondendo em tempo real</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-cyan-300">
-                    <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />
-                    <span>Tempo médio de resposta do agente: 620ms • Taxa de resolução sem intervenção: 91.4%</span>
-                  </div>
-                </div>
-              )}
-
-              {activeTab === 'speed' && (
-                <div className="space-y-2 animate-in fade-in duration-300">
-                  <div className="text-slate-500 font-sans text-xs"># Lighthouse & Core Web Vitals Audit</div>
-                  <div className="text-indigo-400 flex items-center gap-2">
-                    <span className="text-slate-400">$</span> audit --url=https://eliorasoft.com.br --device=mobile
-                  </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                    <div className="p-2.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-center">
-                      <div className="text-xl font-bold text-emerald-400">100</div>
-                      <div className="text-[10px] text-slate-300">Performance</div>
-                    </div>
-                    <div className="p-2.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-center">
-                      <div className="text-xl font-bold text-emerald-400">100</div>
-                      <div className="text-[10px] text-slate-300">Acessibilidade</div>
-                    </div>
-                    <div className="p-2.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-center">
-                      <div className="text-xl font-bold text-emerald-400">100</div>
-                      <div className="text-[10px] text-slate-300">Boas Práticas</div>
-                    </div>
-                    <div className="p-2.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-center">
-                      <div className="text-xl font-bold text-emerald-400">100</div>
-                      <div className="text-[10px] text-slate-300">SEO</div>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
